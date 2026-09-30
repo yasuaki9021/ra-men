@@ -1,0 +1,85 @@
+{
+  "_comment": "手動登録の店舗。lat/lng は最寄り駅付近の概算値 (verified: false)。Google Places 収集を実行すると同名店舗の正確な住所・座標で上書きされる。style は 淡麗 / 中間 / 濃厚 / セメント。",
+  "shops": [
+    {
+      "id": "seed:nagi-goldengai",
+      "name": "すごい煮干ラーメン凪 新宿ゴールデン街店本館",
+      "area": "新宿区",
+      "address": "東京都新宿区歌舞伎町1丁目",
+      "lat": 35.6941,
+      "lng": 139.7046,
+      "style": "濃厚",
+      "verified": false
+    },
+    {
+      "id": "seed:ibuki",
+      "name": "中華そば 伊吹",
+      "area": "板橋区",
+      "address": "東京都板橋区 志村坂上駅付近",
+      "lat": 35.7757,
+      "lng": 139.6952,
+      "style": "セメント",
+      "verified": false
+    },
+    {
+      "id": "seed:miyamoto",
+      "name": "煮干しつけ麺 宮元",
+      "area": "大田区",
+      "address": "東京都大田区 蒲田駅付近",
+      "lat": 35.5627,
+      "lng": 139.7163,
+      "style": "濃厚",
+      "verified": false
+    },
+    {
+      "id": "seed:mutahiro",
+      "name": "中華そば ムタヒロ 1号店",
+      "area": "国分寺市",
+      "address": "東京都国分寺市 国分寺駅付近",
+      "lat": 35.7001,
+      "lng": 139.4803,
+      "style": "中間",
+      "verified": false
+    },
+    {
+      "id": "seed:eifukucho-taishoken",
+      "name": "永福町 大勝軒",
+      "area": "杉並区",
+      "address": "東京都杉並区 永福町駅付近",
+      "lat": 35.6763,
+      "lng": 139.6426,
+      "style": "中間",
+      "verified": false
+    },
+    {
+      "id": "seed:harukiya-ogikubo",
+      "name": "中華そば 春木屋 荻窪本店",
+      "area": "杉並区",
+      "address": "東京都杉並区 荻窪駅付近",
+      "lat": 35.7046,
+      "lng": 139.6201,
+      "style": "淡麗",
+      "verified": false
+    },
+    {
+      "id": "seed:aoba-nakano",
+      "name": "中華そば 青葉 中野本店",
+      "area": "中野区",
+      "address": "東京都中野区 中野駅付近",
+      "lat": 35.7064,
+      "lng": 139.6659,
+      "style": "中間",
+      "verified": false
+    },
+    {
+      "id": "seed:en-hachioji",
+      "name": "煮干鰮らーめん 圓",
+      "area": "八王子市",
+      "address": "東京都八王子市 八王子駅付近",
+      "lat": 35.6557,
+      "lng": 139.3389,
+      "style": "淡麗",
+      "verified": false
+    }
+  ]
+}

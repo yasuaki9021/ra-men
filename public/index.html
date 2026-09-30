@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ニボ濃度マップ 東京</title>
+  <meta name="description" content="都内の煮干しラーメンを、口コミと SNS の言葉から濃度スコア化して地図で探せるサイト" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="config.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <h1>ニボ濃度マップ <span class="badge-area">東京</span></h1>
+      <p class="lead">口コミと SNS の言葉から、煮干しラーメンの<strong>濃さ</strong>を 0〜100 で点数化</p>
+    </div>
+    <ol class="legend" id="legend" aria-label="濃度レベル"></ol>
+  </header>
+
+  <section class="filters" aria-label="絞り込み">
+    <label>キーワード
+      <input type="search" id="q" placeholder="店名・エリア" />
+    </label>
+    <label>エリア
+      <select id="area"><option value="">都内すべて</option></select>
+    </label>
+    <label>濃度 <output id="range-out">0〜100</output>
+      <span class="range2">
+        <input type="range" id="min" min="0" max="100" step="5" value="0" aria-label="濃度の下限" />
+        <input type="range" id="max" min="0" max="100" step="5" value="100" aria-label="濃度の上限" />
+      </span>
+    </label>
+    <label>並び順
+      <select id="sort">
+        <option value="score-desc">濃い順</option>
+        <option value="score-asc">淡い順</option>
+        <option value="rating">Google 評価順</option>
+        <option value="docs">口コミ件数順</option>
+      </select>
+    </label>
+  </section>
+
+  <main class="layout">
+    <div class="map-wrap">
+      <div id="map" role="region" aria-label="地図"></div>
+      <p class="map-note" id="map-note" hidden></p>
+    </div>
+    <div class="list-wrap">
+      <p class="count" id="count"></p>
+      <ul class="shops" id="shops"></ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <details>
+      <summary>濃度スコアの仕組み</summary>
+      <ol>
+        <li>店のスタイル (淡麗・中間・濃厚・セメント) から事前スコアを置く</li>
+        <li>Google の口コミや X の投稿から「セメント」「ドロドロ」「えぐみ」「淡麗」「あっさり」などの語を数え、濃い/淡い方向に補正 (否定表現は反転)</li>
+        <li>件数が増えるほどテキストの比重が上がる (信頼度)。さらにあなたの投票 (1〜5) も反映</li>
+      </ol>
+      <p>口コミや投稿の本文は保存せず、語の集計値だけを使っています。「要確認」の店は位置が概算です。</p>
+    </details>
+    <p class="updated" id="updated"></p>
+  </footer>
+
+  <template id="shop-tpl">
+    <li class="shop">
+      <div class="shop-head">
+        <span class="level-chip"></span>
+        <h2 class="shop-name"></h2>
+      </div>
+      <p class="shop-meta"></p>
+      <div class="gauge" role="meter" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+      <p class="score-line"><strong class="score"></strong><span class="unit">/100</span> <span class="conf"></span></p>
+      <ul class="keywords"></ul>
+      <div class="vote" role="group" aria-label="あなたの濃度評価">
+        <span>あなたの評価</span>
+      </div>
+      <p class="links"></p>
+    </li>
+  </template>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

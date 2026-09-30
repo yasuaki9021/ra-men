@@ -1,0 +1,16 @@
+{
+  "name": "niboshi-map-tokyo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "都内の煮干しラーメンを口コミ・SNSから濃度スコア化して地図で探せるサイト",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "collect:google": "node scripts/collect-google.js",
+    "collect:x": "node scripts/collect-x.js",
+    "build": "node scripts/build.js && node scripts/build-config.js",
+    "update": "npm run collect:google && node scripts/build.js && npm run collect:x && npm run build",
+    "dev": "npm run build && node scripts/serve.js",
+    "test": "node --test"
+  }
+}
